@@ -7,11 +7,11 @@ class Cart < ActiveRecord::Base
   end
 
   def add_item(quantity)
-    if item = self.line_items.find_by(item_id: num)
+    if item = self.line_items.find_by(item_id: quantity)
       item.quantity += 1
       item
     else
-      self.line_items.build(item_id: num)
+      self.line_items.build(item_id: quantity)
     end
   end
 
